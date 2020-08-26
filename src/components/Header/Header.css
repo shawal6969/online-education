@@ -1,0 +1,16 @@
+.navBar{
+    height: 150px;
+    background-color: salmon;
+    color: white;
+}
+.menuContent{
+    list-style: none;
+    
+}
+.menuContent li{
+    text-align: center;
+    margin: 0 auto;
+    display: inline;
+    margin: 10px;
+    font-weight: bold;
+}
