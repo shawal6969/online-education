@@ -27,12 +27,11 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
     for (let index = 0; index < cart.length; index++) {
         const element = cart[index];
         total = total + Number(element.price);
-        console.log(total);
-        
+        console.log(total);  
     }
+
+    total.toFixed(2);
      
-
-
     //console.log(cart);
 
     return (
@@ -44,7 +43,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
             </div>
             <div className='courseStatus' style={{position: 'fixed', top: '100px'}}>
                 <h2 style={{padding: '25px'}}><FontAwesomeIcon icon={faShoppingCart} />{cart.length}</h2>
-                <h6>$ {total}</h6>
+                <h6>$ {total.toFixed(2)}</h6>
             </div>
            
         </div>
