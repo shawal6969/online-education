@@ -1,13 +1,11 @@
-
 .courseContainer{
     display: flex;
-    width: 100%;
-    position: sticky;
 }
 .courseStatus{
     background-color: #000;
     color: white;
-    position: sticky;
+    width: 100px;
+    height: 200px;
 }
 .totalCourse{
     margin: 50px;

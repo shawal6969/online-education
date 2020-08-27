@@ -10,7 +10,7 @@ import { FormControl } from 'react-bootstrap';
 const Header = () => {
     return (
         <div className='navBar'>
-            <Navbar bg="dark" variant="dark">
+            <Navbar fixed="top" bg="dark" variant="dark">
                 <Navbar.Brand href="#home">Online Education</Navbar.Brand>
                 <Nav className="ml-auto">
                 <Nav.Link href="#home">Courses</Nav.Link>

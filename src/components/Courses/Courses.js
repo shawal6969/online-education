@@ -2,53 +2,33 @@ import React from 'react';
 import './Courses.css'
 import data from '../../fakeData/data'
 import { useState } from 'react';
-import { Card, CardGroup, CardDeck, Container, Row, Col, Button } from 'react-bootstrap';
+import Prices from '../Prices/Prices';
+
 
     function Courses(){
     const [courses, setCourses] = useState(data);
 
-    var [enrollCourse, setEnrollCourse] = useState([])
+    const [cart, setCart] = useState([]);
+    console.log(cart.length);
 
     const handleEvent = (course) => {
-        console.log("clicked", course);
-        const newEnrollCourse = [...enrollCourse, course ];
-        setEnrollCourse(newEnrollCourse);
+        console.log(course);
+        const newCart = [...cart, course];
+        setCart(newCart);
     }
 
+    //console.log(cart);
+
     return (
-        <div>
+        <div className='courseContainer'>
             <div>
-                <Container>
-                    <Row>
-                        <Col xs={12} sm={12} md={12} lg={12} xl={12}>
-                            {
-                                courses.map(course =>
-                                    <CardGroup style={{display: 'flex', flexDirection: 'row',}}>
-                                        <Card className='totalCourse' bg='dark' text='white' >
-                                            <Card.Img variant="top" src={course.image}/>
-                                            <Card.Body>
-                                                <Card.Title>{course.name}</Card.Title>
-                                                <Card.Text>
-                                                {course.instructor}
-                                                <br/>
-                                                {course.duration}
-                                                <br/>
-                                                {course.students}
-                                                </Card.Text>
-                                            </Card.Body>
-                                            <Button variant="danger">{course.price}</Button>
-                                        </Card>
-                                    </CardGroup>
-                                )
-                            }
-                        </Col>
-                    </Row>
-                </Container>
+               {
+                   courses.map(course => <Prices handleEvent={handleEvent} course={course}></Prices>)
+               }
             </div>
-            <div className='courseStatus' >
-                <h5>Enrolled Course:{enrollCourse.length}</h5>
-                <br/>
-                <h6>course amount $00</h6>
+            <div className='courseStatus' style={{position: 'fixed', top: '100px'}}>
+               
+                <h2>course {cart.length}</h2>
             </div>
         </div>
     );
