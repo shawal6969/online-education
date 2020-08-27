@@ -2,8 +2,7 @@ import React from 'react';
 import './Courses.css'
 import data from '../../fakeData/data'
 import { useState } from 'react';
-import { StickyContainer, Sticky } from 'react-sticky';
-import Button from 'react-bootstrap/Button';
+import { Card, CardGroup, CardDeck, Container, Row, Col, Button } from 'react-bootstrap';
 
     function Courses(){
     const [courses, setCourses] = useState(data);
@@ -16,26 +15,36 @@ import Button from 'react-bootstrap/Button';
         setEnrollCourse(newEnrollCourse);
     }
 
-    const courseArea = {
-        width: '70%'
-    }
-
     return (
-        <div className='courseContainer'>
+        <div>
             <div>
-                {
-                    courses.map(course => 
-                        <div className='courseArea' style={courseArea}>
-                            <h2>{course.name}</h2> 
-                            <h3>{course.price}</h3>
-                            <Button variant='warning' onClick = {() => (handleEvent(course))}>Enroll Now</Button>
-                        </div>
-                    )
-                }
+                <Container>
+                    <Row>
+                        <Col xs={12} sm={12} md={12} lg={12} xl={12}>
+                            {
+                                courses.map(course =>
+                                    <CardGroup style={{display: 'flex', flexDirection: 'row',}}>
+                                        <Card className='totalCourse' bg='dark' text='white' >
+                                            <Card.Img variant="top" src={course.image}/>
+                                            <Card.Body>
+                                                <Card.Title>{course.name}</Card.Title>
+                                                <Card.Text>
+                                                {course.instructor}
+                                                <br/>
+                                                {course.duration}
+                                                <br/>
+                                                {course.students}
+                                                </Card.Text>
+                                            </Card.Body>
+                                            <Button variant="danger">{course.price}</Button>
+                                        </Card>
+                                    </CardGroup>
+                                )
+                            }
+                        </Col>
+                    </Row>
+                </Container>
             </div>
-            <StickyContainer>
-                
-            </StickyContainer>
             <div className='courseStatus' >
                 <h5>Enrolled Course:{enrollCourse.length}</h5>
                 <br/>

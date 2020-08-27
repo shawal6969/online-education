@@ -1,7 +1,4 @@
-.courseTitle{
-    font-size: 30px;
-    font-weight: bold;
-}
+
 .courseContainer{
     display: flex;
     width: 100%;
@@ -11,4 +8,8 @@
     background-color: #000;
     color: white;
     position: sticky;
+}
+.totalCourse{
+    margin: 50px;
+    padding: 25px;
 }
